@@ -280,6 +280,45 @@ document.addEventListener("DOMContentLoaded", () => {
         window.initCantieriTracker();
     }
 
+    // Rilevamento Dispositivo Mobile e Avviso Tool Desktop Only
+    function initMobileAdvisory() {
+        const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isSmallScreen = window.innerWidth < 1024;
+        const modalMobile = document.getElementById('modal-mobile-warning');
+        const btnDismissMobile = document.getElementById('btn-dismiss-mobile');
+        const ribbonMobile = document.getElementById('mobile-top-ribbon');
+        const btnDismissRibbon = document.getElementById('btn-dismiss-ribbon');
+
+        if (isMobileUA || isSmallScreen) {
+            // Mostra il modal solo se non è già stato chiuso nella sessione corrente
+            if (!sessionStorage.getItem('mobile_advisory_dismissed')) {
+                if (modalMobile) {
+                    modalMobile.classList.remove('hidden');
+                    modalMobile.classList.add('flex');
+                    if (window.lucide) window.lucide.createIcons();
+                }
+            }
+        }
+
+        if (btnDismissMobile && modalMobile) {
+            btnDismissMobile.addEventListener('click', () => {
+                sessionStorage.setItem('mobile_advisory_dismissed', 'true');
+                modalMobile.classList.add('hidden');
+                modalMobile.classList.remove('flex');
+                if (window.cyberAudio) window.cyberAudio.playClick();
+            });
+        }
+
+        if (btnDismissRibbon && ribbonMobile) {
+            btnDismissRibbon.addEventListener('click', () => {
+                ribbonMobile.style.display = 'none';
+                if (window.cyberAudio) window.cyberAudio.playClick();
+            });
+        }
+    }
+
+    initMobileAdvisory();
+
     // Apertura da popup mappa
     window.open3DModel = (category) => {
         const openModalBtn = document.getElementById('btn-open-3d');

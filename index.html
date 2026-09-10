@@ -74,6 +74,15 @@
         </div>
     </nav>
 
+    <!-- Mobile Top Advisory Ribbon -->
+    <div id="mobile-top-ribbon" class="md:hidden absolute top-16 left-0 right-0 z-40 bg-amber-500/20 backdrop-blur-md border-b border-amber-500/30 px-3 py-1.5 flex items-center justify-between text-[11px] text-amber-200">
+        <div class="flex items-center gap-1.5 truncate">
+            <i data-lucide="monitor" class="w-3.5 h-3.5 text-amber-400 flex-shrink-0"></i>
+            <span class="truncate">Tool FiberCop Collesalvetti: progettato per Desktop PC</span>
+        </div>
+        <button id="btn-dismiss-ribbon" class="text-amber-300 hover:text-white ml-2 flex-shrink-0 text-xs px-1" title="Chiudi avviso">✕</button>
+    </div>
+
     <!-- Map Container -->
     <div id="map" class="absolute inset-0 z-0"></div>
 
@@ -336,6 +345,48 @@
                     <!-- Injected dynamically by js/cantieri_tracker.js -->
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Mobile Advisory Modal -->
+    <div id="modal-mobile-warning" class="fixed inset-0 z-[200] bg-cyber-dark/95 backdrop-blur-xl hidden items-center justify-center p-4">
+        <div class="glass-panel border border-amber-500/50 rounded-2xl max-w-md w-full p-6 shadow-2xl relative text-center max-h-[92vh] overflow-y-auto custom-scrollbar">
+            <!-- Icon -->
+            <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                <i data-lucide="monitor" class="w-8 h-8 animate-pulse"></i>
+            </div>
+            
+            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] font-bold uppercase tracking-wider mb-2.5">
+                <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i> Accesso da Dispositivo Mobile
+            </div>
+            
+            <h3 class="text-xl font-['Rajdhani'] font-bold text-white mb-2 tracking-wide">
+                TOOL AVANZATO CONCEPITO PER DESKTOP
+            </h3>
+            
+            <p class="text-xs text-slate-300 leading-relaxed mb-4 text-justify">
+                Questo è uno strumento cartografico e di telemetria avanzato sviluppato per tracciare e monitorare in alta precisione i <b>cantieri stradali</b>, la <b>backbone ottica</b> e le <b>infrastrutture di rete dell'operatore wholesale FiberCop</b> nel territorio del <b>Comune di Collesalvetti</b>.
+            </p>
+
+            <div class="p-3.5 bg-black/50 border border-amber-500/30 rounded-xl text-left text-xs text-slate-300 mb-5 space-y-2.5">
+                <div class="flex items-start gap-2.5">
+                    <i data-lucide="monitor-check" class="w-4 h-4 text-cyber-neon flex-shrink-0 mt-0.5"></i>
+                    <div>
+                        <b class="text-white">Progettato per PC Desktop:</b> L'interfaccia complessa, la mappa GIS multilivello, l'HUD di telemetria e il visualizzatore 3D WebGL (Three.js) con controlli orbitali sono pensati <b>solo ed esclusivamente per l'uso da computer desktop</b> con display ad alta risoluzione e mouse.
+                    </div>
+                </div>
+                <div class="flex items-start gap-2.5">
+                    <i data-lucide="smartphone" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                    <div>
+                        <b class="text-white">Limitazioni su Smartphone:</b> La navigazione da telefono potrebbe risultare fortemente limitata o non ottimale nell'interazione con i tracciati e i modelli.
+                    </div>
+                </div>
+            </div>
+
+            <button id="btn-dismiss-mobile" class="w-full bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/50 py-2.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+                <span>Ho capito, procedi comunque da smartphone</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
         </div>
     </div>
 
