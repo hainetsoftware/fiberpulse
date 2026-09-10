@@ -47,11 +47,20 @@
 - Fotografie ad alta definizione scattate sul territorio toscano per ciascun apparato.
 - Schede guida per il riconoscimento visivo sul campo, specifiche di capacità e ruolo nell'architettura di rete.
 
-### 4. 📊 Cruscotto di Telemetria e Statistiche in Tempo Reale
-- Calcolo automatico della metratura lineare tracciata (**12,07 km** di cavi e trincee).
-- Superficie esatta delle aree coperte vs non coperte calcolata in ettari e $km^2$.
+### 4. 🚧 Monitoraggio Cantieri & Ordinanze Albo Pretorio (Live Europe/Rome)
+- **Aggiornamento Continuo Albo Pretorio:** Modulo dedicato per tracciare le ordinanze della Polizia Municipale di regolamentazione della circolazione e scavo per la posa della fibra FTTH (**Fastweb / FiberCop**).
+- **Stato Dinamico in Tempo Reale:** Calcolo automatico al secondo basato sull'orario locale (`Europe/Rome`):
+  - 🟡 **Attivazione Programmata / Imminente:** Conto alla rovescia dinamico (giorni, ore) prima dell'inizio dello scavo.
+  - 🟢 **Cantiere Attivo Ora:** Notifica di lavori in corso durante le fasce orarie feriali (08:00 - 18:00).
+  - ⚪ **Lavori Conclusi:** Archiviazione storica dei ripristini del manto stradale.
+- **Vie Coinvolte & Prescrizioni:** Dettaglio per ogni singola via interessata da divieti di sosta con rimozione forzata o sensi unici alternati regolati da semaforo/movieri.
+- **Archivio Atti Ufficiali:** Download diretto dei file PDF originali dell'Albo Pretorio.
+
+### 5. 📊 Cruscotto di Telemetria e Statistiche in Tempo Reale
+- Calcolo automatico della metratura lineare tracciata (**13,50 km** di cavi e trincee, con l'inclusione del nuovo cantiere di Stagno).
+- **Snapshot 2 Espansione Stagno:** Incremento dell'area coperta a Stagno da 28,65 a **37,17 ettari** (la percentuale coperta sale al **80,3%**).
 - Ripartizione apparati e navigazione aerea istantanea per frazione: *Collesalvetti, Vicarello, Stagno, Guasticce, Nugola, Parrana San Martino, Parrana San Giusto*.
-- Barra di ricerca e filtro in tempo reale.
+- Barra di ricerca e filtro in tempo reale per apparato, categoria e frazione.
 
 ---
 
@@ -65,12 +74,17 @@ adventurous-turing/
 ├── css/
 │   └── app.css                                 # Stili Cyber Dark, glassmorphism e animazioni neon
 ├── js/
-│   ├── data.js                                 # Database GeoJSON precompilato (46 feature censite)
+│   ├── data.js                                 # Database GeoJSON precompilato (49 feature censite)
+│   ├── cantieri_tracker.js                     # Monitoraggio live ordinanze Albo Pretorio (Europe/Rome)
 │   ├── map.js                                  # Controller Leaflet, layer Esri e confini Toscana
 │   ├── three_apparati.js                       # Motore Three.js e modelli 3D procedurali
 │   ├── telemetry.js                            # Calcolo statistiche, filtri e navigazione frazioni
 │   ├── audio.js                                # Sintetizzatore sonoro cibernetico (Web Audio API)
 │   └── main.js                                 # Coordinamento UI, modali e galleria foto IRL
+├── ordinanze/                                  # Atti ufficiali e ordinanze Albo Pretorio Comune
+│   ├── ordinanza_102_2026_stagno_cantiere2.pdf  # Posa FTTH FiberCop Stagno (del 10/09/2026)
+│   ├── ordinanza_95_2026_collesalvetti_cantiere1.pdf # Posa FTTH FiberCop Collesalvetti Centro
+│   └── ordinanza_75_2026_stagno_ripristino.pdf # Ripristini definitivi manto stradale Stagno
 ├── images/                                     # Fotografie ad alta definizione degli apparati reali
 │   ├── arl_irl.jpg                             # ARL con tettuccio rosso e colonnina Enel
 │   ├── arlo_irl.jpg                            # Armadio ottico FiberCop sul marciapiede
@@ -168,7 +182,12 @@ The platform tracks the real-world deployment of:
    - Procedural PBR models created with Three.js showing external enclosures, internal copper terminal blocks, optical splitters, 19" OLT server racks with live blinking LEDs, and road cross-sections with microduct bundles.
 3. **High-Definition Real-Life (IRL) Photo Gallery:**
    - Authentic photographic documentation captured across Tuscany with field identification guidelines and technical data.
-4. **Data Exports:**
+4. **Live Municipal Ordinance & Works Tracker (`Europe/Rome`):**
+   - Real-time tracker parsing municipal traffic and excavation decrees published on the Collesalvetti Albo Pretorio for FiberCop / Fastweb FTTH deployments.
+   - Dynamic time-zone based countdowns (*Scheduled / Imminent*, *Active Now during working hours*, *Completed*).
+   - Exact affected street breakdown and one-click access to official municipal PDF decrees.
+5. **Data Exports & Snapshot 2 Stagno Expansion:**
+   - Expanded coverage polygon in Stagno (from 28.65 ha to 37.17 ha, 80.3% coverage).
    - Clean GeoJSON, native XLSX spreadsheet, and CSV tables ready for GIS software (QGIS, ArcGIS).
 
 ## Running Locally

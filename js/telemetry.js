@@ -24,7 +24,7 @@ function updateTelemetry(features) {
         if (p.category === 'arl') arl++;
         if (p.category === 'arlo') arlo++;
         if (p.category.includes('centrale')) centrali++;
-        if (p.category === 'cantiere') cantieri++;
+        if (p.category.includes('cantiere')) cantieri++;
         
         if (p.frazione && p.frazione !== 'Altro') {
             frazCounts[p.frazione] = (frazCounts[p.frazione] || 0) + 1;

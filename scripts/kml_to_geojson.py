@@ -95,6 +95,16 @@ def categorize(name, geom_type, desc):
         category = "infratel"
         icon = "infratel"
         color = "#ffaa00"
+    elif "cantiere 2" in nl:
+        category = "cantiere_programmato"
+        icon = "traffic-cone"
+        color = "#ffd700"  # Gold per cantiere 2 Stagno
+        frazione = "Stagno"
+    elif "cantiere 1" in nl:
+        category = "cantiere_imminente"
+        icon = "traffic-cone"
+        color = "#ff8c00"  # Arancio per cantiere 1 Collesalvetti
+        frazione = "Collesalvetti"
     elif "cantiere" in nl:
         category = "cantiere"
         icon = "traffic-cone"
@@ -192,37 +202,73 @@ def parse_kml(kml_path):
             
         category, frazione, icon, color = categorize(name, geom_type, clean_desc)
         
-        # Gestione specifica e precisa delle Centrali di Rete
+        # Gestione specifica delle Centrali
         if category == "centrale_comunale":
             name = "Centrale Comunale (Collesalvetti)"
             frazione = "Collesalvetti"
         elif category == "centrale_frazione" and geom_type == "Point":
             lon, lat = geom["coordinates"][0], geom["coordinates"][1]
-            
-            # Vicarello (~ 43.6083, 10.4712)
             if 43.605 < lat < 43.615 and 10.465 < lon < 10.475:
                 frazione = "Vicarello"
                 name = "Centrale di Frazione (Vicarello)"
-            # Guasticce (~ 43.5962, 10.4068)
             elif 43.590 < lat < 43.605 and 10.400 < lon < 10.415:
                 frazione = "Guasticce"
                 name = "Centrale di Frazione (Guasticce)"
-            # Stagno (~ 43.5862, 10.3472)
             elif 43.580 < lat < 43.595 and 10.340 < lon < 10.360:
                 frazione = "Stagno"
                 name = "Centrale di Frazione (Stagno)"
-            # Nugola (~ 43.5775, 10.4383)
             elif 43.570 < lat < 43.585 and 10.430 < lon < 10.445:
                 frazione = "Nugola"
                 name = "Centrale di Frazione (Nugola)"
-            # Parrana San Martino (~ 43.5381, 10.4423 - ex etichettata Castell'Anselmo)
             elif 43.532 < lat < 43.545 and 10.435 < lon < 10.450:
                 frazione = "Parrana San Martino"
                 name = "Centrale di Frazione (Parrana San Martino)"
-            # Parrana San Giusto (~ 43.5285, 10.4573 - la più a sud di tutte)
             elif lat < 43.532:
                 frazione = "Parrana San Giusto"
                 name = "Centrale di Frazione (Parrana San Giusto)"
+
+        # Arricchimento Cantieri da Ordinanze Ufficiali Albo Pretorio
+        cantiere_info = None
+        if "cantiere 2" in name.lower():
+            cantiere_info = {
+                "codice_ordinanza": "Ordinanza P.M. n. 95 del 10/09/2026 (Reg. Gen. 102)",
+                "data_ordinanza": "10/09/2026",
+                "inizio_lavori": "2026-09-21T08:00:00+02:00",
+                "fine_lavori": "2026-10-16T18:00:00+02:00",
+                "orario_giornaliero": "08:00 - 18:00 feriali",
+                "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+                "vie_interessate": [
+                    "Via Otto Marzo",
+                    "Via Romita",
+                    "Via De Gasperi",
+                    "Via Machiavelli",
+                    "Via XXV Aprile",
+                    "Piazza Di Vittorio"
+                ],
+                "file_pdf": "ordinanze/ordinanza_102_2026_stagno_cantiere2.pdf",
+                "stato_base": "programmato"
+            }
+            if not clean_desc:
+                clean_desc = "Nuovo cantiere FTTH FiberCop Stagno (Ord. 102/2026 del 10/09/2026). Vie: Via Otto Marzo, Via Romita, Via De Gasperi, Via Machiavelli, Via XXV Aprile, Piazza Di Vittorio."
+        elif "cantiere 1" in name.lower():
+            cantiere_info = {
+                "codice_ordinanza": "Ordinanza P.M. n. 88 del 02/09/2026 (Reg. Gen. 95)",
+                "data_ordinanza": "02/09/2026",
+                "inizio_lavori": "2026-09-14T08:00:00+02:00",
+                "fine_lavori": "2026-10-02T18:00:00+02:00",
+                "orario_giornaliero": "08:00 - 18:00 feriali",
+                "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+                "vie_interessate": [
+                    "Via Nenni",
+                    "Via Roma (rotatoria Via Nenni)",
+                    "Via del Valico a Pisa",
+                    "Via di Cerretello"
+                ],
+                "file_pdf": "ordinanze/ordinanza_95_2026_collesalvetti_cantiere1.pdf",
+                "stato_base": "imminente"
+            }
+            if not clean_desc:
+                clean_desc = "Cantiere FTTH FiberCop Collesalvetti (Ord. 95/2026 del 02/09/2026). Vie: Via Nenni, Via Roma, Via del Valico a Pisa, Via di Cerretello."
 
         feature = {
             "type": "Feature",
@@ -242,7 +288,8 @@ def parse_kml(kml_path):
                 "length_km": round(length_m / 1000.0, 3),
                 "area_m2": round(area_m2, 1),
                 "area_km2": round(area_m2 / 1000000.0, 4),
-                "lookAt": look_at
+                "lookAt": look_at,
+                "cantiere": cantiere_info
             }
         }
         features.append(feature)
@@ -250,10 +297,11 @@ def parse_kml(kml_path):
     geojson = {
         "type": "FeatureCollection",
         "metadata": {
-            "title": "Rete FTTH & Infrastrutture TLC - Comune di Collesalvetti",
-            "author": "Mappatura Originale Cittadina su Google Earth",
+            "title": "Rete FTTH & Tracker Cantieri - Comune di Collesalvetti",
+            "author": "Mappatura Originale Cittadina integrata con Albo Pretorio",
             "total_features": len(features),
-            "generated_at": "2026-09-10"
+            "generated_at": "2026-09-10",
+            "timezone": "Europe/Rome"
         },
         "features": features
     }
@@ -268,7 +316,7 @@ def main():
     with open("data/network_data.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         
-    js_content = f"// Generato automaticamente da {kml_path}\nwindow.FTTH_NETWORK_DATA = {json.dumps(data, ensure_ascii=False, indent=2)};\n"
+    js_content = f"// Generato automaticamente da {kml_path} con dati Ordinanze Albo Pretorio\nwindow.FTTH_NETWORK_DATA = {json.dumps(data, ensure_ascii=False, indent=2)};\n"
     with open("js/data.js", "w", encoding="utf-8") as f:
         f.write(js_content)
         

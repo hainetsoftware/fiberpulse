@@ -139,10 +139,45 @@ function loadData() {
             if (props.length_m > 0) popupContent += `<div class="text-sm mt-2">📏 Tratta: <b>${props.length_m} m</b> (${props.length_km} km)</div>`;
             if (props.area_m2 > 0) popupContent += `<div class="text-sm mt-2">📐 Superficie: <b>${props.area_km2} km²</b></div>`;
             
+            // Dettagli dinamici cantiere Albo Pretorio
+            if (props.cantiere) {
+                const cInfo = props.cantiere;
+                let statusInfo = null;
+                if (window.calculateCantiereStatus) {
+                    statusInfo = window.calculateCantiereStatus({
+                        inizio: cInfo.inizio_lavori,
+                        fine: cInfo.fine_lavori,
+                        fasciaOraria: cInfo.orario_giornaliero
+                    });
+                }
+                popupContent += `
+                    <div class="mt-3 pt-2 border-t border-white/10 text-xs">
+                        <div class="flex items-center gap-1.5 mb-1.5">
+                            <span class="w-2 h-2 rounded-full ${statusInfo ? statusInfo.dotClass : 'bg-amber-400'}"></span>
+                            <span class="font-bold px-2 py-0.5 rounded text-[11px] ${statusInfo ? statusInfo.badgeClass : 'bg-amber-500/20 text-amber-400 border border-amber-500/40'}">
+                                ${statusInfo ? statusInfo.statusLabel : 'CANTIERE'}
+                            </span>
+                        </div>
+                        <div class="text-[11px] text-cyber-neon font-mono mb-2">${statusInfo ? statusInfo.timingSummary : ''}</div>
+                        <div class="text-slate-400 text-[11px] mb-1">📋 Ordinanza: <b class="text-white">${cInfo.codice_ordinanza}</b></div>
+                        <div class="text-slate-400 text-[11px] mb-2">🏢 Richiedente: <b class="text-slate-200">${cInfo.richiedente}</b></div>
+                        <div class="bg-black/40 p-2.5 rounded border border-white/10 mb-2.5">
+                            <div class="text-[10px] uppercase font-bold text-slate-400 mb-1">Vie Autorizzate dallo Scavo:</div>
+                            <ul class="list-disc list-inside space-y-0.5 text-slate-300 text-[11px]">
+                                ${cInfo.vie_interessate.map(v => `<li>${v}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <a href="${cInfo.file_pdf}" target="_blank" download class="w-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/50 text-amber-300 py-1.5 px-2 rounded text-xs font-bold flex items-center justify-center gap-1.5 transition-colors mb-2">
+                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Scarica PDF Ordinanza Ufficiale
+                        </a>
+                    </div>
+                `;
+            }
+
             let mapsTarget = feature.geometry.type === 'Point' ? `${feature.geometry.coordinates[1]},${feature.geometry.coordinates[0]}` : '';
             
             popupContent += `
-                    <div class="mt-4 flex gap-2">
+                    <div class="mt-3 flex gap-2">
                         <button onclick="window.open3DModel('${props.category}')" class="flex-1 bg-cyber-neon/20 hover:bg-cyber-neon/40 text-cyber-neon py-1 px-2 rounded text-xs font-bold border border-cyber-neon/50 flex items-center justify-center gap-1 transition-colors">
                             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 21 16z"></path></svg> 3D Model
                         </button>`;
@@ -151,7 +186,7 @@ function loadData() {
             }
             popupContent += `</div></div>`;
             
-            layer.bindPopup(popupContent, { minWidth: 260 });
+            layer.bindPopup(popupContent, { minWidth: 280, maxWidth: 340 });
         }
     }).addTo(map);
     

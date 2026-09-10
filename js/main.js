@@ -254,6 +254,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
+    // Modale Cantieri & Ordinanze Albo Pretorio
+    const btnOpenCantieri = document.getElementById('btn-open-cantieri');
+    const btnCloseCantieri = document.getElementById('btn-close-cantieri');
+    const modalCantieri = document.getElementById('modal-cantieri');
+
+    if (btnOpenCantieri && modalCantieri) {
+        btnOpenCantieri.addEventListener('click', () => {
+            window.cyberAudio.playClick();
+            modalCantieri.classList.remove('hidden');
+            modalCantieri.classList.add('flex');
+            if (window.initCantieriTracker) window.initCantieriTracker();
+        });
+    }
+
+    if (btnCloseCantieri && modalCantieri) {
+        btnCloseCantieri.addEventListener('click', () => {
+            window.cyberAudio.playClick();
+            modalCantieri.classList.add('hidden');
+            modalCantieri.classList.remove('flex');
+        });
+    }
+
+    if (window.initCantieriTracker) {
+        window.initCantieriTracker();
+    }
+
     // Apertura da popup mappa
     window.open3DModel = (category) => {
         const openModalBtn = document.getElementById('btn-open-3d');

@@ -1,10 +1,11 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "title": "Rete FTTH & Infrastrutture TLC - Comune di Collesalvetti",
-    "author": "Mappatura Originale Cittadina su Google Earth",
-    "total_features": 46,
-    "generated_at": "2026-09-10"
+    "title": "Rete FTTH & Tracker Cantieri - Comune di Collesalvetti",
+    "author": "Mappatura Originale Cittadina integrata con Albo Pretorio",
+    "total_features": 49,
+    "generated_at": "2026-09-10",
+    "timezone": "Europe/Rome"
   },
   "features": [
     {
@@ -88,10 +89,10 @@
       "properties": {
         "id": "0C11108026419D776229",
         "name": "Cantiere 1 (14/09-02/10)",
-        "category": "cantiere",
+        "category": "cantiere_imminente",
         "frazione": "Collesalvetti",
         "geom_type": "LineString",
-        "description": "",
+        "description": "Cantiere FTTH FiberCop Collesalvetti (Ord. 95/2026 del 02/09/2026). Vie: Via Nenni, Via Roma, Via del Valico a Pisa, Via di Cerretello.",
         "raw_description": "",
         "icon": "traffic-cone",
         "color": "#ff8c00",
@@ -106,6 +107,22 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 1107.31602100961
+        },
+        "cantiere": {
+          "codice_ordinanza": "Ordinanza P.M. n. 88 del 02/09/2026 (Reg. Gen. 95)",
+          "data_ordinanza": "02/09/2026",
+          "inizio_lavori": "2026-09-14T08:00:00+02:00",
+          "fine_lavori": "2026-10-02T18:00:00+02:00",
+          "orario_giornaliero": "08:00 - 18:00 feriali",
+          "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+          "vie_interessate": [
+            "Via Nenni",
+            "Via Roma (rotatoria Via Nenni)",
+            "Via del Valico a Pisa",
+            "Via di Cerretello"
+          ],
+          "file_pdf": "ordinanze/ordinanza_95_2026_collesalvetti_cantiere1.pdf",
+          "stato_base": "imminente"
         }
       }
     },
@@ -150,10 +167,10 @@
       "properties": {
         "id": "0D01C4A3D9419D77F4F8",
         "name": "Cantiere 1 (14/09-02/10)",
-        "category": "cantiere",
+        "category": "cantiere_imminente",
         "frazione": "Collesalvetti",
         "geom_type": "LineString",
-        "description": "",
+        "description": "Cantiere FTTH FiberCop Collesalvetti (Ord. 95/2026 del 02/09/2026). Vie: Via Nenni, Via Roma, Via del Valico a Pisa, Via di Cerretello.",
         "raw_description": "",
         "icon": "traffic-cone",
         "color": "#ff8c00",
@@ -168,6 +185,22 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 1142.082605470059
+        },
+        "cantiere": {
+          "codice_ordinanza": "Ordinanza P.M. n. 88 del 02/09/2026 (Reg. Gen. 95)",
+          "data_ordinanza": "02/09/2026",
+          "inizio_lavori": "2026-09-14T08:00:00+02:00",
+          "fine_lavori": "2026-10-02T18:00:00+02:00",
+          "orario_giornaliero": "08:00 - 18:00 feriali",
+          "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+          "vie_interessate": [
+            "Via Nenni",
+            "Via Roma (rotatoria Via Nenni)",
+            "Via del Valico a Pisa",
+            "Via di Cerretello"
+          ],
+          "file_pdf": "ordinanze/ordinanza_95_2026_collesalvetti_cantiere1.pdf",
+          "stato_base": "imminente"
         }
       }
     },
@@ -203,7 +236,8 @@
           "heading": 66.68746798737725,
           "tilt": 27.78109241598673,
           "range": 85.87679516544085
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -238,7 +272,8 @@
           "heading": 3.488453153961721,
           "tilt": 22.25852995961843,
           "range": 168.5667978957099
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -273,7 +308,8 @@
           "heading": -24.04117433316009,
           "tilt": 18.9754859052477,
           "range": 42.72616320258294
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -308,7 +344,8 @@
           "heading": -174.8321910951265,
           "tilt": 0.2054215867862803,
           "range": 121.131047905219
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -343,7 +380,8 @@
           "heading": 167.2032950400495,
           "tilt": 0.0,
           "range": 48.98218259737405
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -378,7 +416,8 @@
           "heading": 193.6762615912674,
           "tilt": 0.0,
           "range": 87.18022802623636
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -413,7 +452,8 @@
           "heading": -24.04080935554134,
           "tilt": 18.97554447727877,
           "range": 62.75627064409491
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -448,7 +488,8 @@
           "heading": 260.6222810185236,
           "tilt": 0.0,
           "range": 74.08701672710778
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -483,7 +524,8 @@
           "heading": 137.4303601572429,
           "tilt": 20.14108414239434,
           "range": 340.5757706051372
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -518,7 +560,8 @@
           "heading": -74.53142659514765,
           "tilt": 0.1206384495683505,
           "range": 113.3717670795522
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -553,7 +596,8 @@
           "heading": -49.1755706209078,
           "tilt": 3.506405490188474,
           "range": 94.02600433393673
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -588,7 +632,8 @@
           "heading": -49.17469479733042,
           "tilt": 3.506401060473639,
           "range": 85.97310388518054
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -623,7 +668,8 @@
           "heading": -89.47386434582545,
           "tilt": 0.1769562837131852,
           "range": 236.279795172486
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -658,7 +704,8 @@
           "heading": 155.7570609569958,
           "tilt": 1.136245906785847,
           "range": 51.36984037862021
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -693,7 +740,8 @@
           "heading": 260.6061690292034,
           "tilt": 0.0,
           "range": 114.2296395646554
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -728,7 +776,8 @@
           "heading": 5.849535331023148,
           "tilt": 0.0,
           "range": 84.19217771117475
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -763,7 +812,8 @@
           "heading": 22.93686795488712,
           "tilt": 0.0,
           "range": 67.42346849997375
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -798,7 +848,8 @@
           "heading": -97.9501813807996,
           "tilt": 0.09037096574810492,
           "range": 139.3653636399359
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -833,7 +884,8 @@
           "heading": 22.93880339107385,
           "tilt": 0.0,
           "range": 367.7078160796736
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -868,7 +920,8 @@
           "heading": 304.3561117395951,
           "tilt": 0.0,
           "range": 37.59936224299964
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -903,7 +956,8 @@
           "heading": 22.93674749892452,
           "tilt": 0.0,
           "range": 91.9395452507706
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -938,7 +992,8 @@
           "heading": 10.93552576847395,
           "tilt": 0.0,
           "range": 124.0013270435338
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -973,7 +1028,8 @@
           "heading": 29.46079087818764,
           "tilt": 0.0,
           "range": 136.1776904559883
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1008,7 +1064,8 @@
           "heading": 101.3911809635427,
           "tilt": 0.0,
           "range": 116.0344096940025
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1043,7 +1100,8 @@
           "heading": -11.41732871338099,
           "tilt": 0.2106551528310472,
           "range": 68.3784493319945
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1078,7 +1136,8 @@
           "heading": 75.26916690514389,
           "tilt": 0.0,
           "range": 500.0417798130366
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1113,7 +1172,8 @@
           "heading": 30.35177433707048,
           "tilt": 0.2702131546023824,
           "range": 163.6113460309934
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1148,7 +1208,8 @@
           "heading": 348.9306765480285,
           "tilt": 0.0,
           "range": 54.8263273599423
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1183,7 +1244,8 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 740.6460948752846
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1218,7 +1280,8 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 740.7751236341041
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1253,7 +1316,8 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 740.0025217691492
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1410,7 +1474,8 @@
           "heading": 22.93415676336189,
           "tilt": 0.0,
           "range": 1060.041876830655
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1462,7 +1527,8 @@
           "heading": 22.93392977305238,
           "tilt": 0.0,
           "range": 728.6932012410398
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1854,7 +1920,8 @@
           "heading": 4.223076536908568,
           "tilt": 0.0,
           "range": 852.585581978783
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -1888,10 +1955,10 @@
       "properties": {
         "id": "02442DD76E41BFC6C1C1",
         "name": "Cantiere 1 (14/09-02/10)",
-        "category": "cantiere",
+        "category": "cantiere_imminente",
         "frazione": "Collesalvetti",
         "geom_type": "LineString",
-        "description": "",
+        "description": "Cantiere FTTH FiberCop Collesalvetti (Ord. 95/2026 del 02/09/2026). Vie: Via Nenni, Via Roma, Via del Valico a Pisa, Via di Cerretello.",
         "raw_description": "",
         "icon": "traffic-cone",
         "color": "#ff8c00",
@@ -1906,6 +1973,22 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 867.5584038755915
+        },
+        "cantiere": {
+          "codice_ordinanza": "Ordinanza P.M. n. 88 del 02/09/2026 (Reg. Gen. 95)",
+          "data_ordinanza": "02/09/2026",
+          "inizio_lavori": "2026-09-14T08:00:00+02:00",
+          "fine_lavori": "2026-10-02T18:00:00+02:00",
+          "orario_giornaliero": "08:00 - 18:00 feriali",
+          "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+          "vie_interessate": [
+            "Via Nenni",
+            "Via Roma (rotatoria Via Nenni)",
+            "Via del Valico a Pisa",
+            "Via di Cerretello"
+          ],
+          "file_pdf": "ordinanze/ordinanza_95_2026_collesalvetti_cantiere1.pdf",
+          "stato_base": "imminente"
         }
       }
     },
@@ -1970,10 +2053,10 @@
       "properties": {
         "id": "099D51459541BFC79191",
         "name": "Cantiere 1 (14/09-02/10)",
-        "category": "cantiere",
+        "category": "cantiere_imminente",
         "frazione": "Collesalvetti",
         "geom_type": "LineString",
-        "description": "",
+        "description": "Cantiere FTTH FiberCop Collesalvetti (Ord. 95/2026 del 02/09/2026). Vie: Via Nenni, Via Roma, Via del Valico a Pisa, Via di Cerretello.",
         "raw_description": "",
         "icon": "traffic-cone",
         "color": "#ff8c00",
@@ -1988,6 +2071,22 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 867.5584038755915
+        },
+        "cantiere": {
+          "codice_ordinanza": "Ordinanza P.M. n. 88 del 02/09/2026 (Reg. Gen. 95)",
+          "data_ordinanza": "02/09/2026",
+          "inizio_lavori": "2026-09-14T08:00:00+02:00",
+          "fine_lavori": "2026-10-02T18:00:00+02:00",
+          "orario_giornaliero": "08:00 - 18:00 feriali",
+          "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+          "vie_interessate": [
+            "Via Nenni",
+            "Via Roma (rotatoria Via Nenni)",
+            "Via del Valico a Pisa",
+            "Via di Cerretello"
+          ],
+          "file_pdf": "ordinanze/ordinanza_95_2026_collesalvetti_cantiere1.pdf",
+          "stato_base": "imminente"
         }
       }
     },
@@ -2032,10 +2131,10 @@
       "properties": {
         "id": "08DB97EDC341BFC840B3",
         "name": "Cantiere 1 (14/09-02/10)",
-        "category": "cantiere",
+        "category": "cantiere_imminente",
         "frazione": "Collesalvetti",
         "geom_type": "LineString",
-        "description": "",
+        "description": "Cantiere FTTH FiberCop Collesalvetti (Ord. 95/2026 del 02/09/2026). Vie: Via Nenni, Via Roma, Via del Valico a Pisa, Via di Cerretello.",
         "raw_description": "",
         "icon": "traffic-cone",
         "color": "#ff8c00",
@@ -2050,6 +2149,22 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 869.4865020111322
+        },
+        "cantiere": {
+          "codice_ordinanza": "Ordinanza P.M. n. 88 del 02/09/2026 (Reg. Gen. 95)",
+          "data_ordinanza": "02/09/2026",
+          "inizio_lavori": "2026-09-14T08:00:00+02:00",
+          "fine_lavori": "2026-10-02T18:00:00+02:00",
+          "orario_giornaliero": "08:00 - 18:00 feriali",
+          "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+          "vie_interessate": [
+            "Via Nenni",
+            "Via Roma (rotatoria Via Nenni)",
+            "Via del Valico a Pisa",
+            "Via di Cerretello"
+          ],
+          "file_pdf": "ordinanze/ordinanza_95_2026_collesalvetti_cantiere1.pdf",
+          "stato_base": "imminente"
         }
       }
     },
@@ -2119,10 +2234,10 @@
       "properties": {
         "id": "0B6DD449B041BFC99520",
         "name": "Cantiere 1 (14/09-02/10)",
-        "category": "cantiere",
+        "category": "cantiere_imminente",
         "frazione": "Collesalvetti",
         "geom_type": "LineString",
-        "description": "",
+        "description": "Cantiere FTTH FiberCop Collesalvetti (Ord. 95/2026 del 02/09/2026). Vie: Via Nenni, Via Roma, Via del Valico a Pisa, Via di Cerretello.",
         "raw_description": "",
         "icon": "traffic-cone",
         "color": "#ff8c00",
@@ -2137,6 +2252,22 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 447.0714161050273
+        },
+        "cantiere": {
+          "codice_ordinanza": "Ordinanza P.M. n. 88 del 02/09/2026 (Reg. Gen. 95)",
+          "data_ordinanza": "02/09/2026",
+          "inizio_lavori": "2026-09-14T08:00:00+02:00",
+          "fine_lavori": "2026-10-02T18:00:00+02:00",
+          "orario_giornaliero": "08:00 - 18:00 feriali",
+          "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+          "vie_interessate": [
+            "Via Nenni",
+            "Via Roma (rotatoria Via Nenni)",
+            "Via del Valico a Pisa",
+            "Via di Cerretello"
+          ],
+          "file_pdf": "ordinanze/ordinanza_95_2026_collesalvetti_cantiere1.pdf",
+          "stato_base": "imminente"
         }
       }
     },
@@ -2296,7 +2427,8 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 2965.34725387115
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -2460,7 +2592,8 @@
           "heading": 0.0,
           "tilt": 0.0,
           "range": 2965.34725387115
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -2537,7 +2670,8 @@
           "heading": 8.4823210684776,
           "tilt": 7.439489808876339,
           "range": 133.0650315723688
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -2649,7 +2783,8 @@
           "heading": 8.2202307259039,
           "tilt": 0.0,
           "range": 226.9127769896295
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -2665,13 +2800,43 @@
               0.0
             ],
             [
-              10.35510454017938,
-              43.58988696519896,
+              10.35277610994666,
+              43.59048801463813,
               0.0
             ],
             [
-              10.35639371299143,
-              43.59016761249177,
+              10.3526505359322,
+              43.58743519779854,
+              0.0
+            ],
+            [
+              10.35406542123152,
+              43.58749817886542,
+              0.0
+            ],
+            [
+              10.35465268792066,
+              43.58659192091743,
+              0.0
+            ],
+            [
+              10.35588790349082,
+              43.58697544732269,
+              0.0
+            ],
+            [
+              10.35619082816237,
+              43.58749000380309,
+              0.0
+            ],
+            [
+              10.35557166527899,
+              43.58922149886713,
+              0.0
+            ],
+            [
+              10.35565564239629,
+              43.58978384484707,
               0.0
             ],
             [
@@ -2744,8 +2909,8 @@
         "color": "#10b981",
         "length_m": 0,
         "length_km": 0.0,
-        "area_m2": 286535.2,
-        "area_km2": 0.2865,
+        "area_m2": 371709.9,
+        "area_km2": 0.3717,
         "lookAt": {
           "longitude": 10.35352531477823,
           "latitude": 43.59263548179091,
@@ -2753,7 +2918,8 @@
           "heading": 8.143748108009644,
           "tilt": 0.0,
           "range": 1587.795536121412
-        }
+        },
+        "cantiere": null
       }
     },
     {
@@ -2779,53 +2945,53 @@
               0.0
             ],
             [
-              10.35383489337913,
-              43.59013040562169,
+              10.35388316746706,
+              43.5902080130128,
               0.0
             ],
             [
-              10.35385369437735,
-              43.58947050673475,
+              10.35611741182298,
+              43.58979350958879,
               0.0
             ],
             [
-              10.35308105998938,
-              43.58964231468376,
+              10.35605003178186,
+              43.58973169875044,
               0.0
             ],
             [
-              10.35276254784014,
-              43.58964255346162,
+              10.35597978554129,
+              43.58967605083912,
               0.0
             ],
             [
-              10.35259835629876,
-              43.58949017942213,
+              10.35591182352392,
+              43.58961016035908,
               0.0
             ],
             [
-              10.3528552000402,
-              43.58912897112909,
+              10.35584134703281,
+              43.58953495781833,
               0.0
             ],
             [
-              10.35275532915428,
-              43.58886557754962,
+              10.35576217906559,
+              43.58947703182273,
               0.0
             ],
             [
-              10.35260999554727,
-              43.58740074769379,
+              10.35604881295252,
+              43.58896304597244,
               0.0
             ],
             [
-              10.35311711073739,
-              43.58744627146613,
+              10.35622075441015,
+              43.58848679226514,
               0.0
             ],
             [
-              10.35409637333434,
-              43.58761814319503,
+              10.35668771884495,
+              43.58731366296272,
               0.0
             ],
             [
@@ -2894,13 +3060,13 @@
               0.0
             ],
             [
-              10.35520671546847,
-              43.58985387658311,
+              10.3552054447481,
+              43.58991806425099,
               0.0
             ],
             [
-              10.35505312307139,
-              43.58985923406726,
+              10.35501764163918,
+              43.58991436304238,
               0.0
             ],
             [
@@ -2928,8 +3094,8 @@
         "color": "#ef4444",
         "length_m": 0,
         "length_km": 0.0,
-        "area_m2": 172854.7,
-        "area_km2": 0.1729,
+        "area_m2": 91283.7,
+        "area_km2": 0.0913,
         "lookAt": {
           "longitude": 10.35281713464746,
           "latitude": 43.58909758016924,
@@ -2937,6 +3103,307 @@
           "heading": 8.151231565884725,
           "tilt": 0.0,
           "range": 1466.295408123988
+        },
+        "cantiere": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0AD5AAF68741C10071CC",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.35389052326956,
+            43.59022729698687,
+            0.0
+          ],
+          [
+            10.35490778514402,
+            43.58997141866163,
+            0.0
+          ],
+          [
+            10.3550416346986,
+            43.5898619854531,
+            0.0
+          ],
+          [
+            10.35538512807321,
+            43.58920643698846,
+            0.0
+          ],
+          [
+            10.35567306350039,
+            43.58853508832024,
+            0.0
+          ],
+          [
+            10.35604452762555,
+            43.58761807664695,
+            0.0
+          ],
+          [
+            10.35606970388207,
+            43.58741910390204,
+            0.0
+          ],
+          [
+            10.35596779262042,
+            43.58729900108169,
+            0.0
+          ],
+          [
+            10.35573205316022,
+            43.58728426561562,
+            0.0
+          ],
+          [
+            10.35534576870166,
+            43.58743308490265,
+            0.0
+          ],
+          [
+            10.35499422998704,
+            43.5877531995441,
+            0.0
+          ],
+          [
+            10.3546930630951,
+            43.58840799288473,
+            0.0
+          ],
+          [
+            10.35459838786576,
+            43.58863864478779,
+            0.0
+          ],
+          [
+            10.3544312191671,
+            43.5886892765046,
+            0.0
+          ],
+          [
+            10.35423659866315,
+            43.58869514809152,
+            0.0
+          ],
+          [
+            10.35417927629733,
+            43.58926640419229,
+            0.0
+          ],
+          [
+            10.35515570989705,
+            43.58950956872407,
+            0.0
+          ],
+          [
+            10.35521574502985,
+            43.58944476278808,
+            0.0
+          ]
+        ]
+      },
+      "properties": {
+        "id": "0AD5AAF68741C10071CC",
+        "name": "Cantiere 2 (21/09-16/10)",
+        "category": "cantiere_programmato",
+        "frazione": "Stagno",
+        "geom_type": "LineString",
+        "description": "Nuovo cantiere FTTH FiberCop Stagno (Ord. 102/2026 del 10/09/2026). Vie: Via Otto Marzo, Via Romita, Via De Gasperi, Via Machiavelli, Via XXV Aprile, Piazza Di Vittorio.",
+        "raw_description": "",
+        "icon": "traffic-cone",
+        "color": "#ffd700",
+        "length_m": 792.4,
+        "length_km": 0.792,
+        "area_m2": 0,
+        "area_km2": 0.0,
+        "lookAt": {
+          "longitude": 10.35525150848193,
+          "latitude": 43.58894946831555,
+          "altitude": 18.26557661804938,
+          "heading": 0.0,
+          "tilt": 0.0,
+          "range": 657.763721024312
+        },
+        "cantiere": {
+          "codice_ordinanza": "Ordinanza P.M. n. 95 del 10/09/2026 (Reg. Gen. 102)",
+          "data_ordinanza": "10/09/2026",
+          "inizio_lavori": "2026-09-21T08:00:00+02:00",
+          "fine_lavori": "2026-10-16T18:00:00+02:00",
+          "orario_giornaliero": "08:00 - 18:00 feriali",
+          "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+          "vie_interessate": [
+            "Via Otto Marzo",
+            "Via Romita",
+            "Via De Gasperi",
+            "Via Machiavelli",
+            "Via XXV Aprile",
+            "Piazza Di Vittorio"
+          ],
+          "file_pdf": "ordinanze/ordinanza_102_2026_stagno_cantiere2.pdf",
+          "stato_base": "programmato"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "04D8D17C9141C10125EB",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.35388295987024,
+            43.59015894830006,
+            0.0
+          ],
+          [
+            10.35406688267233,
+            43.58761564174289,
+            0.0
+          ],
+          [
+            10.35430179143639,
+            43.58726528385459,
+            0.0
+          ],
+          [
+            10.35448118284483,
+            43.58698887564383,
+            0.0
+          ]
+        ]
+      },
+      "properties": {
+        "id": "04D8D17C9141C10125EB",
+        "name": "Cantiere 2 (21/09-16/10)",
+        "category": "cantiere_programmato",
+        "frazione": "Stagno",
+        "geom_type": "LineString",
+        "description": "Nuovo cantiere FTTH FiberCop Stagno (Ord. 102/2026 del 10/09/2026). Vie: Via Otto Marzo, Via Romita, Via De Gasperi, Via Machiavelli, Via XXV Aprile, Piazza Di Vittorio.",
+        "raw_description": "",
+        "icon": "traffic-cone",
+        "color": "#ffd700",
+        "length_m": 360.5,
+        "length_km": 0.36,
+        "area_m2": 0,
+        "area_km2": 0.0,
+        "lookAt": {
+          "longitude": 10.35544935938166,
+          "latitude": 43.58744357175065,
+          "altitude": 8.021382711957854,
+          "heading": 0.0,
+          "tilt": 0.0,
+          "range": 668.0078490997403
+        },
+        "cantiere": {
+          "codice_ordinanza": "Ordinanza P.M. n. 95 del 10/09/2026 (Reg. Gen. 102)",
+          "data_ordinanza": "10/09/2026",
+          "inizio_lavori": "2026-09-21T08:00:00+02:00",
+          "fine_lavori": "2026-10-16T18:00:00+02:00",
+          "orario_giornaliero": "08:00 - 18:00 feriali",
+          "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+          "vie_interessate": [
+            "Via Otto Marzo",
+            "Via Romita",
+            "Via De Gasperi",
+            "Via Machiavelli",
+            "Via XXV Aprile",
+            "Piazza Di Vittorio"
+          ],
+          "file_pdf": "ordinanze/ordinanza_102_2026_stagno_cantiere2.pdf",
+          "stato_base": "programmato"
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "01393CA83D41C1030753",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.35394203207994,
+            43.58851577286455,
+            0.0
+          ],
+          [
+            10.35371416876303,
+            43.58869450770677,
+            0.0
+          ],
+          [
+            10.35387333461452,
+            43.58884115611766,
+            0.0
+          ],
+          [
+            10.3532592000069,
+            43.58858614270715,
+            0.0
+          ],
+          [
+            10.35321261708328,
+            43.58785581196885,
+            0.0
+          ],
+          [
+            10.3532591507029,
+            43.5875657566061,
+            0.0
+          ],
+          [
+            10.35342585018318,
+            43.58750955602729,
+            0.0
+          ],
+          [
+            10.35396757947023,
+            43.58758693467999,
+            0.0
+          ]
+        ]
+      },
+      "properties": {
+        "id": "01393CA83D41C1030753",
+        "name": "Cantiere 2 (21/09-16/10)",
+        "category": "cantiere_programmato",
+        "frazione": "Stagno",
+        "geom_type": "LineString",
+        "description": "Nuovo cantiere FTTH FiberCop Stagno (Ord. 102/2026 del 10/09/2026). Vie: Via Otto Marzo, Via Romita, Via De Gasperi, Via Machiavelli, Via XXV Aprile, Piazza Di Vittorio.",
+        "raw_description": "",
+        "icon": "traffic-cone",
+        "color": "#ffd700",
+        "length_m": 277.9,
+        "length_km": 0.278,
+        "area_m2": 0,
+        "area_km2": 0.0,
+        "lookAt": {
+          "longitude": 10.35502175423013,
+          "latitude": 43.58819413211362,
+          "altitude": 15.40747753737118,
+          "heading": 0.0,
+          "tilt": 0.0,
+          "range": 792.203114705917
+        },
+        "cantiere": {
+          "codice_ordinanza": "Ordinanza P.M. n. 95 del 10/09/2026 (Reg. Gen. 102)",
+          "data_ordinanza": "10/09/2026",
+          "inizio_lavori": "2026-09-21T08:00:00+02:00",
+          "fine_lavori": "2026-10-16T18:00:00+02:00",
+          "orario_giornaliero": "08:00 - 18:00 feriali",
+          "richiedente": "Fastweb S.p.A. per rete FTTH FiberCop",
+          "vie_interessate": [
+            "Via Otto Marzo",
+            "Via Romita",
+            "Via De Gasperi",
+            "Via Machiavelli",
+            "Via XXV Aprile",
+            "Piazza Di Vittorio"
+          ],
+          "file_pdf": "ordinanze/ordinanza_102_2026_stagno_cantiere2.pdf",
+          "stato_base": "programmato"
         }
       }
     }

@@ -55,6 +55,11 @@
             <div id="frazioni-nav" class="hidden md:flex gap-2">
                 <!-- Frazioni buttons will be injected here -->
             </div>
+            <button id="btn-open-cantieri" class="flex items-center gap-2 bg-amber-500/20 hover:bg-amber-500/30 text-amber-400 border border-amber-500/50 px-3 py-1.5 rounded text-sm font-semibold transition-all">
+                <i data-lucide="cone" class="w-4 h-4"></i>
+                <span class="hidden sm:inline">Cantieri & Ordinanze</span>
+                <span id="cantieri-count-badge" class="bg-amber-400/20 text-amber-300 border border-amber-400/40 text-[10px] px-1.5 py-0.5 rounded-full font-mono">--</span>
+            </button>
             <a href="data/rete_ftth_collesalvetti.xlsx" download class="flex items-center gap-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 border border-emerald-500/40 px-3 py-1.5 rounded text-sm font-semibold transition-all" title="Scarica Foglio Excel Completo">
                 <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
                 <span class="hidden lg:inline">Scarica Excel</span>
@@ -297,12 +302,50 @@
         </div>
     </div>
 
+    <!-- Cantieri & Ordinanze Albo Pretorio Modal -->
+    <div id="modal-cantieri" class="fixed inset-0 z-[100] bg-cyber-dark/95 backdrop-blur-xl hidden flex-col">
+        <!-- Modal Top Bar -->
+        <div class="flex justify-between items-center p-4 border-b border-cyber-border/50">
+            <div class="flex items-center gap-4">
+                <h2 class="text-2xl font-['Rajdhani'] font-bold text-white flex items-center gap-3">
+                    <i data-lucide="cone" class="text-amber-400"></i> Monitoraggio Cantieri & Ordinanze Fibra
+                </h2>
+                <div class="hidden sm:flex items-center gap-2 bg-black/50 px-3 py-1 rounded-lg border border-cyber-border/40 text-xs">
+                    <span class="text-slate-400">Orario Ufficiale:</span>
+                    <span id="cantieri-live-clock" class="text-cyber-neon font-mono font-bold">--:--:-- (Europe/Rome)</span>
+                </div>
+            </div>
+
+            <button id="btn-close-cantieri" class="p-2 hover:bg-white/10 rounded-full transition-colors text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-6 bg-cyber-dark/90">
+            <div class="max-w-5xl mx-auto space-y-4">
+                <!-- Info Banner -->
+                <div class="p-4 glass-panel border border-cyber-border/40 rounded-xl flex items-start gap-3">
+                    <i data-lucide="shield-alert" class="w-6 h-6 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                    <div class="text-xs text-slate-300 leading-relaxed">
+                        <b class="text-white">Albo Pretorio del Comune di Collesalvetti:</b> Questo modulo incrocia in tempo reale le ordinanze di regolamentazione stradale e scavo pubblicate all'Albo Pretorio per la posa e manutenzione della rete FTTH FiberCop / Fastweb. Lo stato dei cantieri (programmato, attivo, concluso) è calcolato al secondo sul fuso orario di <b>Europe/Rome</b> con dettaglio su vie e divieti.
+                    </div>
+                </div>
+
+                <!-- Cards Container -->
+                <div id="cantieri-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Injected dynamically by js/cantieri_tracker.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="js/data.js"></script>
     <script src="js/audio.js"></script>
+    <script src="js/cantieri_tracker.js"></script>
     <script src="js/map.js"></script>
     <script src="js/three_apparati.js"></script>
     <script src="js/telemetry.js"></script>

@@ -40,10 +40,20 @@ Inspect 3D procedural models of Italian telecommunications equipment with 360° 
 - Authentic high-resolution photos captured across Tuscany showing each apparatus in real-world urban and suburban contexts.
 - Field recognition guide, technical specs, capacity ratings, and network roles.
 
-### 4. Live Telemetry HUD & Search
-- Live network metrics: 12.07 km of total fiber routes mapped, active ARL/ARLO counts, and exact coverage surface in hectares.
+### 4. Live Municipal Works & Ordinances Tracker (`Europe/Rome`)
+- **Direct Albo Pretorio Integration:** Dedicated surveillance module tracking municipal traffic regulations and street excavation permits published on the official Collesalvetti Municipal Gazette for FTTH FiberCop / Fastweb deployments.
+- **Dynamic Real-Time Status Engine:** Computed live to the second based on local `Europe/Rome` timezone:
+  - 🟡 **Scheduled / Imminent:** Countdown timer (days, hours) down to excavation commencement.
+  - 🟢 **Active Worksite:** Worksite active on the ground during regulated business hours (08:00 - 18:00 weekdays).
+  - ⚪ **Completed Works:** Road resurfacing and asphalt restoration audit.
+- **Street-by-Street Breakdown:** Detailed restrictions for each street (alternate one-way traffic, parking bans with tow-away zones).
+- **Official Decrees:** In-app access and download of the official signed PDF decrees.
+
+### 5. Live Telemetry HUD & Search
+- Live network metrics: **13.50 km** of total fiber routes mapped (including new Stagno civil works), active ARL/ARLO counts, and 49 audited features.
+- **Snapshot 2 Stagno Expansion:** Stagno coverage polygon increased from 28.65 to **37.17 hectares** (coverage expanded to **80.3%**).
 - Quick navigation fly-to camera shortcuts for all local fractions: *Collesalvetti, Vicarello, Stagno, Guasticce, Nugola, Parrana San Martino, Parrana San Giusto*.
-- Instant search filter by equipment name or fraction.
+- Instant search filter by equipment name, category, or fraction.
 
 ---
 

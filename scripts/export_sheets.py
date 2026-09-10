@@ -2,7 +2,6 @@
 import json
 import csv
 import zipfile
-import io
 import xml.sax.saxutils as saxutils
 
 def escape_xml(s):
@@ -15,6 +14,8 @@ def get_type_label(category):
         'centrale_comunale': 'Centrale Telecom (Sede OLT)',
         'centrale_frazione': 'Centrale di Frazione',
         'cantiere': 'Cantiere Fibra Ottica',
+        'cantiere_imminente': 'Cantiere FTTH (Attivazione Imminente)',
+        'cantiere_programmato': 'Cantiere FTTH (Nuova Ordinanza Programmata)',
         'tratta_stagno': 'Tratta Fibra Posa',
         'rete_scuole': 'Tratta Scuole Connesse',
         'rete_sanita': 'Tratta Sanità Connesse',
@@ -36,6 +37,10 @@ def build_rows(data):
         "Tipologia",
         "Frazione",
         "Tipo Geometria",
+        "Stato / Attivazione Cantiere",
+        "Periodo Lavori (Inizio - Fine)",
+        "Vie Coinvolte",
+        "Riferimento Ordinanza Comunale",
         "Latitudine",
         "Longitudine",
         "Quota (m s.l.m.)",
@@ -44,7 +49,8 @@ def build_rows(data):
         "Superficie (m²)",
         "Superficie (km²)",
         "Note Tecniche e Dettagli sul Campo",
-        "Link Google Maps"
+        "Link Google Maps",
+        "Link Ordinanza PDF"
     ]
     
     rows = []
@@ -75,12 +81,30 @@ def build_rows(data):
             lat = round(first_pt[1], 6)
             maps_link = f"https://www.google.com/maps?q={lat},{lon}"
             
+        c = p.get("cantiere")
+        c_status = ""
+        c_period = ""
+        c_streets = ""
+        c_ordinanza = ""
+        c_pdf = ""
+        
+        if c:
+            c_status = c.get("stato_base", "").upper()
+            c_period = f"{c.get('inizio_lavori', '')[:10]} -> {c.get('fine_lavori', '')[:10]}"
+            c_streets = ", ".join(c.get("vie_interessate", []))
+            c_ordinanza = c.get("codice_ordinanza", "")
+            c_pdf = c.get("file_pdf", "")
+            
         row = [
             p["id"],
             p["name"],
             get_type_label(p["category"]),
             p["frazione"],
             g_type,
+            c_status,
+            c_period,
+            c_streets,
+            c_ordinanza,
             lat,
             lon,
             ele,
@@ -89,7 +113,8 @@ def build_rows(data):
             p["area_m2"] if p["area_m2"] > 0 else "",
             p["area_km2"] if p["area_km2"] > 0 else "",
             p["description"].replace("\n", " | "),
-            maps_link
+            maps_link,
+            c_pdf
         ]
         rows.append(row)
     return headers, rows
@@ -109,7 +134,6 @@ def col_letter(col_idx):
     return res
 
 def export_xlsx(headers, rows, filepath):
-    # Generates a valid Microsoft Excel .xlsx zip file without third-party dependencies
     content_types = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
     <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
@@ -127,7 +151,7 @@ def export_xlsx(headers, rows, filepath):
     workbook_xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
     <sheets>
-        <sheet name="Rete FTTH Collesalvetti" sheetId="1" r:id="rId1"/>
+        <sheet name="Rete FTTH & Cantieri" sheetId="1" r:id="rId1"/>
     </sheets>
 </workbook>"""
 
@@ -161,14 +185,12 @@ def export_xlsx(headers, rows, filepath):
 </styleSheet>"""
 
     sheet_rows_xml = []
-    # Header row
     hdr_cells = []
     for c_idx, h in enumerate(headers, 1):
         cell_ref = f"{col_letter(c_idx)}1"
         hdr_cells.append(f'<c r="{cell_ref}" s="1" t="inlineStr"><is><t>{escape_xml(h)}</t></is></c>')
     sheet_rows_xml.append(f'<row r="1">{"".join(hdr_cells)}</row>')
 
-    # Data rows
     for r_idx, row in enumerate(rows, 2):
         row_cells = []
         for c_idx, val in enumerate(row, 1):
@@ -176,7 +198,6 @@ def export_xlsx(headers, rows, filepath):
             val_str = str(val) if val != "" else ""
             if val_str == "":
                 continue
-            # Check if numeric
             if isinstance(val, (int, float)) and not isinstance(val, bool):
                 row_cells.append(f'<c r="{cell_ref}"><v>{val}</v></c>')
             else:
@@ -204,13 +225,8 @@ def main():
     data = load_data()
     headers, rows = build_rows(data)
     
-    # Export 1: CSV for Italian Excel (semicolon + UTF-8 BOM)
     export_csv(headers, rows, "data/rete_ftth_collesalvetti_excel_it.csv", delimiter=";", encoding="utf-8-sig")
-    
-    # Export 2: Standard CSV (comma + UTF-8)
     export_csv(headers, rows, "data/rete_ftth_collesalvetti_standard.csv", delimiter=",", encoding="utf-8")
-    
-    # Export 3: Native Excel workbook (.xlsx)
     export_xlsx(headers, rows, "data/rete_ftth_collesalvetti.xlsx")
 
 if __name__ == "__main__":
