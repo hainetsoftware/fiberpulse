@@ -69,8 +69,8 @@ function initMap() {
         topo: topoLayer
     };
 
-    // Imposta Cyber Dark di default
-    darkGroup.addTo(map);
+    // Imposta OpenStreetMap di default per massima nitidezza zoom
+    topoLayer.addTo(map);
 
     document.querySelectorAll('.layer-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {

@@ -55,6 +55,11 @@
             <div id="frazioni-nav" class="hidden md:flex gap-2">
                 <!-- Frazioni buttons will be injected here -->
             </div>
+            <button id="btn-open-osint" class="flex items-center gap-2 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/50 px-3 py-1.5 rounded text-sm font-semibold transition-all" title="Dossier e Intelligence OSINT Rete">
+                <i data-lucide="shield-check" class="w-4 h-4 text-cyan-400"></i>
+                <span class="hidden sm:inline">OSINT Intel</span>
+                <span id="osint-badge-count" class="bg-cyan-400/20 text-cyan-300 border border-cyan-400/40 text-[10px] px-1.5 py-0.5 rounded-full font-mono">1</span>
+            </button>
             <button id="btn-open-cantieri" class="flex items-center gap-2 bg-amber-500/20 hover:bg-amber-500/30 text-amber-400 border border-amber-500/50 px-3 py-1.5 rounded text-sm font-semibold transition-all">
                 <i data-lucide="cone" class="w-4 h-4"></i>
                 <span class="hidden sm:inline">Cantieri & Ordinanze</span>
@@ -88,9 +93,9 @@
 
     <!-- Map Layer Controls (Custom) -->
     <div class="absolute bottom-6 left-6 z-40 flex bg-cyber-panel border border-cyber-border rounded-lg overflow-hidden backdrop-blur-md">
-        <button class="layer-btn px-4 py-2 text-sm font-semibold hover:bg-white/10 active-layer" data-layer="dark">Cyber Dark</button>
-        <button class="layer-btn px-4 py-2 text-sm font-semibold hover:bg-white/10 border-l border-cyber-border" data-layer="satellite">Satellite</button>
-        <button class="layer-btn px-4 py-2 text-sm font-semibold hover:bg-white/10 border-l border-cyber-border" data-layer="topo">OSM</button>
+        <button class="layer-btn px-4 py-2 text-sm font-semibold hover:bg-white/10 active-layer" data-layer="topo">OpenStreetMap</button>
+        <button class="layer-btn px-4 py-2 text-sm font-semibold hover:bg-white/10 border-l border-cyber-border" data-layer="satellite">Satellite HD</button>
+        <button class="layer-btn px-4 py-2 text-sm font-semibold hover:bg-white/10 border-l border-cyber-border" data-layer="dark">Cyber Dark</button>
     </div>
 
     <!-- Telemetry HUD (Right) -->
@@ -348,6 +353,43 @@
         </div>
     </div>
 
+    <!-- OSINT Intelligence & AI Surveillance Modal -->
+    <div id="modal-osint" class="fixed inset-0 z-[100] bg-cyber-dark/95 backdrop-blur-xl hidden flex-col">
+        <!-- Modal Top Bar -->
+        <div class="flex justify-between items-center p-4 border-b border-cyber-border/50">
+            <div class="flex items-center gap-4">
+                <h2 class="text-2xl font-['Rajdhani'] font-bold text-white flex items-center gap-3">
+                    <i data-lucide="shield-check" class="text-cyan-400"></i> Centro Intelligence OSINT & AI Surveillance
+                </h2>
+                <div class="hidden sm:flex items-center gap-2 bg-black/50 px-3 py-1 rounded-lg border border-cyan-500/30 text-xs">
+                    <span class="text-slate-400">Watchdog Rete:</span>
+                    <span class="text-cyan-400 font-mono font-bold">FiberCop / TIM / Fastweb Wholesale</span>
+                </div>
+            </div>
+
+            <button id="btn-close-osint" class="p-2 hover:bg-white/10 rounded-full transition-colors text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-6 bg-cyber-dark/90">
+            <div class="max-w-5xl mx-auto space-y-4">
+                <!-- OSINT Mission Statement Banner -->
+                <div class="p-4 glass-panel border border-cyan-500/30 rounded-xl flex items-start gap-3 bg-gradient-to-r from-cyan-950/20 to-transparent">
+                    <i data-lucide="radar" class="w-6 h-6 text-cyan-400 flex-shrink-0 mt-0.5 animate-pulse"></i>
+                    <div class="text-xs text-slate-300 leading-relaxed">
+                        <b class="text-white">Metodologia OSINT (Open Source Intelligence):</b> Questo modulo aggrega in un unico flusso analitico le evidenze fisiche del terreno (posa armadi, coordinate GPS, foto ad alta definizione), i decreti dell'Albo Pretorio municipale, i bandi PNRR (Scuole & Sanità) e i registri wholesale nazionali. I briefing di intelligence sono generati e aggiornati periodicamente dall'AI per monitorare la trasparenza dello spiegamento della fibra ottica.
+                    </div>
+                </div>
+
+                <!-- OSINT Reports Feed Container -->
+                <div id="osint-reports-list">
+                    <!-- Injected dynamically by js/osint_tracker.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Mobile Advisory Modal -->
     <div id="modal-mobile-warning" class="fixed inset-0 z-[200] bg-cyber-dark/95 backdrop-blur-xl hidden items-center justify-center p-4">
         <div class="glass-panel border border-amber-500/50 rounded-2xl max-w-md w-full p-6 shadow-2xl relative text-center max-h-[92vh] overflow-y-auto custom-scrollbar">
@@ -397,6 +439,7 @@
     <script src="js/data.js"></script>
     <script src="js/audio.js"></script>
     <script src="js/cantieri_tracker.js"></script>
+    <script src="js/osint_tracker.js"></script>
     <script src="js/map.js"></script>
     <script src="js/three_apparati.js"></script>
     <script src="js/telemetry.js"></script>

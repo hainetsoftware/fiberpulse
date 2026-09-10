@@ -280,6 +280,32 @@ document.addEventListener("DOMContentLoaded", () => {
         window.initCantieriTracker();
     }
 
+    // Modale OSINT Intelligence & AI Surveillance Feed
+    const btnOpenOsint = document.getElementById('btn-open-osint');
+    const btnCloseOsint = document.getElementById('btn-close-osint');
+    const modalOsint = document.getElementById('modal-osint');
+
+    if (btnOpenOsint && modalOsint) {
+        btnOpenOsint.addEventListener('click', () => {
+            window.cyberAudio.playClick();
+            modalOsint.classList.remove('hidden');
+            modalOsint.classList.add('flex');
+            if (window.initOsintTracker) window.initOsintTracker();
+        });
+    }
+
+    if (btnCloseOsint && modalOsint) {
+        btnCloseOsint.addEventListener('click', () => {
+            window.cyberAudio.playClick();
+            modalOsint.classList.add('hidden');
+            modalOsint.classList.remove('flex');
+        });
+    }
+
+    if (window.initOsintTracker) {
+        window.initOsintTracker();
+    }
+
     // Rilevamento Dispositivo Mobile e Avviso Tool Desktop Only
     function initMobileAdvisory() {
         const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
